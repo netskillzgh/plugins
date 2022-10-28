@@ -120,12 +120,12 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       List<EncoderProfiles.VideoProfile> videoProfiles = profile.getVideoProfiles();
       EncoderProfiles.VideoProfile defaultVideoProfile = videoProfiles.get(0);
 
-      return new Size(defaultVideoProfile.getWidth(), defaultVideoProfile.getHeight());
+      return new Size(1280, 1706);
     } else {
       @SuppressWarnings("deprecation")
       CamcorderProfile profile =
           getBestAvailableCamcorderProfileForResolutionPresetLegacy(cameraId, preset);
-      return new Size(profile.videoFrameWidth, profile.videoFrameHeight);
+      return new Size(1280, 1706);
     }
   }
 
