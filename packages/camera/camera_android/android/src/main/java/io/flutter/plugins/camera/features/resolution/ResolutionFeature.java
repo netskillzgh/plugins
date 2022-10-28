@@ -251,6 +251,7 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
           new Size(1280, 1706);
     }
 
+
     previewSize = computeBestPreviewSize(cameraId, resolutionPreset);
   }
 }
