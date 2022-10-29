@@ -114,7 +114,7 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
     if (preset.ordinal() > ResolutionPreset.high.ordinal()) {
       preset = ResolutionPreset.high;
     }
-    if (Build.VERSION.SDK_INT >= 31) {
+    if (Build.VERSION.SDK_INT >= 31 && Build.VERSION.SDK_INT < 33) {
       EncoderProfiles profile =
           getBestAvailableCamcorderProfileForResolutionPreset(cameraId, preset);
       List<EncoderProfiles.VideoProfile> videoProfiles = profile.getVideoProfiles();
@@ -126,7 +126,7 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       CamcorderProfile profile =
           getBestAvailableCamcorderProfileForResolutionPresetLegacy(cameraId, preset);
       return new Size(1280, 1706);
-    }
+    //}
   }
 
   /**
@@ -235,21 +235,21 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       return;
     }
 
-    if (Build.VERSION.SDK_INT >= 31) {
+    /* if (Build.VERSION.SDK_INT >= 31) {
       recordingProfile =
           getBestAvailableCamcorderProfileForResolutionPreset(cameraId, resolutionPreset);
       List<EncoderProfiles.VideoProfile> videoProfiles = recordingProfile.getVideoProfiles();
 
       EncoderProfiles.VideoProfile defaultVideoProfile = videoProfiles.get(0);
       captureSize = new Size(1280, 1706);
-    } else {
+    } else { */
       @SuppressWarnings("deprecation")
       CamcorderProfile camcorderProfile =
           getBestAvailableCamcorderProfileForResolutionPresetLegacy(cameraId, resolutionPreset);
       recordingProfileLegacy = camcorderProfile;
       captureSize =
           new Size(1280, 1706);
-    }
+    //}
 
 
     previewSize = computeBestPreviewSize(cameraId, resolutionPreset);
