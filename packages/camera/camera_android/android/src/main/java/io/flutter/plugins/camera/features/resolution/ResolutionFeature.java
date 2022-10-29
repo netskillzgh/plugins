@@ -126,7 +126,7 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       CamcorderProfile profile =
           getBestAvailableCamcorderProfileForResolutionPresetLegacy(cameraId, preset);
       return new Size(1280, 1706);
-    //}
+    }
   }
 
   /**
